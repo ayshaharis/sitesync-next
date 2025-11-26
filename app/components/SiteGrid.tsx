@@ -1,3 +1,4 @@
+"use client";
 import SiteCard from "./SiteCard";
 import React from 'react'
 interface sites{
@@ -8,12 +9,13 @@ interface sites{
 }
 interface SiteGridProps{
     sites:sites[];
-    onAddNewSite:()=>void;
 
 }
-const SiteGrid:React.FC<SiteGridProps>=({sites,onAddNewSite})=>{
+const SiteGrid:React.FC<SiteGridProps>=({sites})=>{
 
-
+const onAddNewSite=()=>{
+    console.log("Add New Site Clicked");
+}
     return(
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
 

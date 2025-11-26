@@ -1,9 +1,22 @@
 import SiteGrid from "./components/SiteGrid"
+import Link from "next/link";
+import { prisma } from "@/lib/prisma";
 
-export default function Home() {
+
+export default async function Home() {
+  const sites= await prisma.site.findMany({
+  orderBy: { createdAt: "desc" }
+});
+
+
+
+
   return (
-   <div>
-<SiteGrid/>    
-   </div>
+    <div>
+
+     
+           <SiteGrid sites={sites} />
+    
+    </div>
   );
 }
